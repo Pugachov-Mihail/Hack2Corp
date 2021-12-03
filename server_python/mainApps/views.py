@@ -25,6 +25,6 @@ class PersonView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['office'] = Person.objects.get(office=self.kwargs['pk'])
+        context['office'] = Person.objects.all()
         #context['']
         return context
