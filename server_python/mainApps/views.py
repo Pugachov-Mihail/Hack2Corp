@@ -21,9 +21,10 @@ class InstrustionView(ListView):
 class PersonView(DetailView):
     template_name = 'mainapps/person.html'
     context_object_name = 'person'
-    model = Office
+    model = Person
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        #context['person_id'] = Person.objects.get(office=self.kwargs['person_id'])
+        context['office'] = Person.objects.get(office=self.kwargs['pk'])
+        #context['']
         return context
