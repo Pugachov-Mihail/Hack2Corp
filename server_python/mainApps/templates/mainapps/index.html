@@ -7,6 +7,15 @@
 <body>
     <h2>Список подразделений</h2>
     {% for off in office %}
+
+
+    <a href="{{ person.office.pk }}">{{ off }}</a><br>
+
+
+    <a href="{% url 'person' off.pk %}">{{ off.office }}</a><br>
+    <h2>{{ off.username }}</h2>
+
+
     <a href="{% url 'person' off.pk %}">{{ off.office }}</a><br>
     <h2>{{ off.username }}</h2>
     {% endfor %}
