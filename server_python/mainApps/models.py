@@ -29,6 +29,8 @@ class Posts(models.Model):
         verbose_name = "Должности"
         verbose_name_plural = "Должность"
 
+        
+
 class Office(models.Model):
     title = models.CharField(max_length=60, verbose_name='Название подразделения',db_index=True, blank=True, null=True)
 
