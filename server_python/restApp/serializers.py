@@ -19,8 +19,8 @@ class OfficeSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
-	#instuction = InstructionsSerializer(many=True)
-	post = PostSerializer(many=True)
+	post = PostSerializer(many=False)
+	office = OfficeSerializer(many=False)
 	class Meta:
 		model = Person
 		fields = ("first_name", "first_name", "post", "allowance", "office")
