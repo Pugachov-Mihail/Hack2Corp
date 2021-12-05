@@ -10,11 +10,17 @@ class InstructionsSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Posts
+		fields = ('title', 'instuctions', 'allowance', 'allowance_level')
+
+class OfficeSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Office
 		fields = "__all__"
 
+
 class PersonSerializer(serializers.ModelSerializer):
-	instuctions = InstructionsSerializer()
-	post = PostSerializer()
+	#instuction = InstructionsSerializer(many=True)
+	post = PostSerializer(many=True)
 	class Meta:
 		model = Person
-		fields = "__all__" #("first_name", "last_name", "instuctions", "post")
+		fields = ("first_name", "first_name", "post", "allowance", "office")
