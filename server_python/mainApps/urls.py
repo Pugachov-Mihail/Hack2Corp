@@ -5,7 +5,7 @@ from .views import PersonOfficeView, PersonView, RegistratoinPerson
 urlpatterns = [
     path('', PersonOfficeView.as_view(), name='main'),
     path('<int:pk>/', PersonView.as_view(), name='person'),
-    path('registration/', RegistratoinPerson.as_view())
+    path('registration/', RegistratoinPerson.as_view()), 
 ]
 
 urlpatterns += [

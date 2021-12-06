@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pr_up25d+ujnkbu83teg6qu(g=isf=lvl4c)php_9%fq_9bw-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['1ad4-185-34-240-5.ngrok.io']
+ALLOWED_HOSTS = ['0d90-185-34-240-5.ngrok.io']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'mainApps',
     'restApp',
     'corsheaders',
+    'rest_framework.authtoken',
+    "djoser",
 ]
 
 MIDDLEWARE = [
@@ -51,13 +53,28 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware'
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'server.urls'
 
 AUTH_USER_MODEL = 'mainApps.Person'
+
+DJOSER = {
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': False,
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+APPEND_SLASH=True
+
 
 TEMPLATES = [
     {
