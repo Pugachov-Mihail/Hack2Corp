@@ -33,8 +33,4 @@ class CreatePerson(CreateAPIView):
             return Response(data, status=201)
         else:
             data = serializer.errors
-<<<<<<< HEAD
             return Response(data, status=400)
-=======
-            return Response(data)
->>>>>>> 3173e4c67a35d74b1baa1c96e2e0a7a0c50dbd84
