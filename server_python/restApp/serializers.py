@@ -25,6 +25,7 @@ class PersonSerializer(serializers.ModelSerializer):
     office = OfficeSerializer(many=False)
     password2 = serializers.CharField()
     email = serializers.EmailField()
+
     def save(self, **kwargs):
         user = Person(
             email=self.validated_data['email'],
