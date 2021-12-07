@@ -15,3 +15,16 @@ class RepositoryModule {
     return _userRepository;
   }
 }
+
+class RepositoryTokenModule {
+  static UserTokenRepository? _userTokenRepository;
+
+  static UserTokenRepository? userTokenRepository() {
+    if (_userTokenRepository == null) {
+      _userTokenRepository = UserDataRepository(
+        ApiModule.apiUtil()!,
+      );
+    }
+    return _userTokenRepository;
+  }
+}

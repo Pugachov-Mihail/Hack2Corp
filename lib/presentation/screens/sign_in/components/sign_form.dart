@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/domain/model/user.dart';
 import 'package:shop_app/presentation/components/custom_surfix_icon.dart';
 import 'package:shop_app/presentation/components/form_error.dart';
 import 'package:shop_app/presentation/helper/keyboard.dart';
 import 'package:shop_app/presentation/screens/forgot_password/forgot_password_screen.dart';
+import 'package:shop_app/presentation/screens/home_screen/home_screen.dart';
 
 import '../../../../constants.dart';
 import '../../../components/default_button.dart';
@@ -14,6 +16,9 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  final _passwordController = TextEditingController();
+  final _mailController = TextEditingController();
+  User? _user;
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -76,7 +81,7 @@ class _SignFormState extends State<SignForm> {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
                 KeyboardUtil.hideKeyboard(context);
-               // Navigator.pushNamed(context, HomeScreen.routeName);
+               Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),
@@ -87,6 +92,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -120,6 +126,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _mailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
