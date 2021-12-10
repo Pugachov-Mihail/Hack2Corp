@@ -12,6 +12,7 @@ from mainApps.models import Instructions, Person
 
 
 class InstructionsViews(APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
         instuctions = Instructions.objects.all()
         serializers = InstructionsSerializer(instuctions, many=True)
