@@ -89,8 +89,6 @@ social-auth-core==4.1.0
 sqlparse==0.4.1
 tomli==1.2.2
 tqdm==4.62.3
-Twisted==21.7.0
-twisted-iocpsupport==1.0.2
 txaio==21.2.1
 typing-extensions==4.0.1
 uritemplate==4.1.1

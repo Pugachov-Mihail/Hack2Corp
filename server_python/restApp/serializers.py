@@ -8,6 +8,7 @@ class InstructionsSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
