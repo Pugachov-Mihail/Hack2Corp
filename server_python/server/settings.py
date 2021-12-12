@@ -9,10 +9,13 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.core.checks import database
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,8 +29,7 @@ SECRET_KEY = 'django-insecure-pr_up25d+ujnkbu83teg6qu(g=isf=lvl4c)php_9%fq_9bw-0
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['b06a-185-34-240-5.ngrok.io',
-                 '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -100,6 +102,9 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -145,6 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
